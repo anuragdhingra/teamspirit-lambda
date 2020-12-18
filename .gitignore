@@ -22,3 +22,6 @@ lambda/.serverless
 
 # Binaries
 chromedriver/
+
+# Config files
+*.json
