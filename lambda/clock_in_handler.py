@@ -7,8 +7,7 @@ import time
 
 def clock_in(event, context):
     if os.getenv("USERNAME") is None or os.getenv("PASSWORD") is None or os.getenv("TEAM_ID") is None :
-        print("env variables USERNAME, PASSWORD and TEAM_ID are required")
-        return
+        raise ValueError('env variables USERNAME, PASSWORD and TEAM_ID are required')
 
     team_id = os.getenv("TEAM_ID")
     user_id = os.getenv("USERNAME")
