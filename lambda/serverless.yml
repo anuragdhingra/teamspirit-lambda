@@ -1,0 +1,32 @@
+service: teamspirit-lambda
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: ap-south-1
+
+
+functions:
+  clock_in:
+    handler: clock_in_handler.clock_in
+    package:
+      exclude:
+        - clock_out_handler.py
+    memorySize: 1024
+    timeout: 120
+    layers:
+      - ${cf:selenium-chromedriver-layer-dev.SeleniumLayerExport}
+      - ${cf:selenium-chromedriver-layer-dev.ChromedriverLayerExport}
+  clock_out:
+    handler: clock_out_handler.clock_out
+    package:
+      exclude:
+        - clock_in_handler.py
+    memorySize: 1024
+    timeout: 120
+    layers:
+      - ${cf:selenium-chromedriver-layer-dev.SeleniumLayerExport}
+      - ${cf:selenium-chromedriver-layer-dev.ChromedriverLayerExport}
