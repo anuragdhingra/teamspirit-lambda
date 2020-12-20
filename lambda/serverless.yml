@@ -12,6 +12,8 @@ provider:
 functions:
   clock_in:
     handler: clock_in_handler.clock_in
+    events:
+      - http: POST clockIn
     package:
       exclude:
         - clock_out_handler.py
@@ -28,6 +30,8 @@ functions:
       - ${cf:selenium-chromedriver-layer-dev.ChromedriverLayerExport}
   clock_out:
     handler: clock_out_handler.clock_out
+    events:
+      - http: POST clockOut
     package:
       exclude:
         - clock_in_handler.py
