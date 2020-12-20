@@ -1,4 +1,5 @@
 # teamspirit-lambda
+AWS lambda functions to clock-in/clock-out from teamspirit deployed via Serverless framework
 
 ### Install
 Go to root directory of project
