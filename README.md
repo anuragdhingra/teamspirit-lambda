@@ -1,5 +1,5 @@
 # teamspirit-lambda
-AWS lambda functions to clock-in/clock-out from teamspirit deployed via Serverless framework
+AWS lambda functions to clock-in/clock-out from [teamspirit](https://www.teamspirit.com/) deployed via Serverless framework
 
 ### Install
 Go to root directory of project
@@ -37,6 +37,15 @@ $ cd layers
 $ sls deploy 
 ```
 
+### Create config file and set teamspirit credentials
+Go to root directory of project
+```buildoutcfg
+$ cd lambda
+$ cp config.dev.json.example config.dev.json 
+```
+Edit `config.dev.json` file and set your teamspirit credentails. 
+Note: These credentials would be stored as enviroment variables for lambda functions. Alternatively, you could use Paramter store or Secrets Manager to store them. More details [here](https://serverless-stack.com/chapters/storing-secrets-in-serverless-apps.html)
+
 ### Deploy clock_in and clock_out Lambda Functions
 Go to root directory of project
 ```buildoutcfg
@@ -45,7 +54,7 @@ $ sls deploy
 ```
 
 ### Start Testing 
-Check serverless logs or log into AWS console to check API gateway for API endpoints(clockIn and clockOut) 
+Check serverless logs or log into AWS console(API gateway) to find generated API endpoints(/clockIn and /clockOut) 
 Or, invoke lambdas directly
 ```buildoutcfg
 $ cd lambda
